@@ -31,20 +31,24 @@ def canvas_state(s_canvas):
     s_canvas[1][1] = 1
     s_canvas[1][2] = 1
     s_canvas[2][1] = 1
+    s_canvas[2][3] = 1
+    s_canvas[3][3] = 1
+    s_canvas[4][3] = 1
+    s_canvas[4][4] = 1
 
-    s_canvas[5][5] = 1
-    s_canvas[5][6] = 1
-    s_canvas[5][7] = 1
+    s_canvas[7][5] = 1
+    s_canvas[7][6] = 1
+    s_canvas[7][7] = 1
 
     s_canvas[10][0] = 1
     s_canvas[11][1] = 1
     s_canvas[12][0] = 1
 
-    s_canvas[5][9] = 1
-    s_canvas[5][10] = 1
-    s_canvas[5][11] = 1
-    s_canvas[4][11] = 1
-    s_canvas[3][10] = 1
+    s_canvas[2][10] = 1
+    s_canvas[2][11] = 1
+    s_canvas[2][12] = 1
+    s_canvas[1][12] = 1
+    s_canvas[0][11] = 1
 
     return s_canvas
 
@@ -100,7 +104,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
                 if j == 0:
                     if tmp == 3:
                         tmp_canvas[n][p] = 1
@@ -108,8 +111,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
-                continue
             # Check for elements in 0 line where p in range(1, w)
             if (n == 0) & (p > 0) & (p < w):
                 # 1
@@ -145,7 +146,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
                 if j == 0:
                     if tmp == 3:
                         tmp_canvas[n][p] = 1
@@ -153,8 +153,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
-                continue
             # Check for 0 line and last element
             if (n == 0) & (p == w):
                 # 1
@@ -191,7 +189,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
                 if j == 0:
                     if tmp == 3:
                         tmp_canvas[n][p] = 1
@@ -199,8 +196,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
-                continue
             # Checks for First elements in lines n in range(1, h)
             if (n > 0) & (n < h) & (p == 0):
                 # 1
@@ -236,7 +231,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
                 if j == 0:
                     if tmp == 3:
                         tmp_canvas[n][p] = 1
@@ -244,8 +238,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
-                continue
             # Checks for elements n > 0 and p in range(1, w)
             if (n > 0) & (n < h) & (p > 0) & (p < w):
                 # 1
@@ -281,7 +273,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
                 if j == 0:
                     if tmp == 3:
                         tmp_canvas[n][p] = 1
@@ -289,8 +280,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
-                continue
             # Checks for Last elements n > 0
             if (n > 0) & (n < h) & (p == w):
                 # 1
@@ -326,7 +315,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
                 if j == 0:
                     if tmp == 3:
                         tmp_canvas[n][p] = 1
@@ -334,8 +322,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
-                continue
             # Check for element 0 in Last line
             if (n == h) & (p == 0):
                 # 1
@@ -371,7 +357,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
                 if j == 0:
                     if tmp == 3:
                         tmp_canvas[n][p] = 1
@@ -379,8 +364,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
-                continue
             # Check for elements p in range(1, w) in Last line
             if (n == h) & (p > 0) & (p < w):
                 # 1
@@ -416,7 +399,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
                 if j == 0:
                     if tmp == 3:
                         tmp_canvas[n][p] = 1
@@ -424,8 +406,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
-                continue
             # Check for Last element in Last line
             if (n == h) & (p == w):
                 # 1
@@ -461,7 +441,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
                 if j == 0:
                     if tmp == 3:
                         tmp_canvas[n][p] = 1
@@ -469,8 +448,6 @@ def check_canvas(_canvas):
                     else:
                         tmp_canvas[n][p] = 0
                         tmp = 0
-                    continue
-                continue
     return tmp_canvas
 
 
@@ -479,13 +456,13 @@ def main():
     canvas_init = canvas_state(canvas)
     print(f'FRAME: {frame}')
     draw_canvas(canvas_init)
-    for _ in range(0, 30):
+    for _ in range(0, 130):
         frame += 1
         next_canvas = check_canvas(canvas_init)
         print(f'FRAME: {frame}')
         draw_canvas(next_canvas)
         canvas_init = next_canvas
-        time.sleep(0.2)
+        time.sleep(0.1)
 
 
 main()
