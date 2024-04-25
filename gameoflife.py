@@ -84,6 +84,387 @@ def check_neigbours(_canvas):
 			else:
 				if tmp == 3:
 				    tmp_canvas += 1
+        for p, j in enumerate(i):
+            # Check for element 0 in 0 line
+            if (n == 0) & (p == 0):
+                # 1
+                if _canvas[h][w] == 1:
+                    tmp += 1
+                # 2
+                if _canvas[h][p] == 1:
+                    tmp += 1
+                # 3
+                if _canvas[h][p+1] == 1:
+                    tmp += 1
+                # 4
+                if _canvas[n][w] == 1:
+                    tmp += 1
+                # 5
+                if _canvas[n][p+1] == 1:
+                    tmp += 1
+                # 6
+                if _canvas[n+1][w] == 1:
+                    tmp += 1
+                # 7
+                if _canvas[n+1][p] == 1:
+                    tmp += 1
+                # 8
+                if _canvas[n+1][p+1] == 1:
+                    tmp += 1
+                # Set life or death
+                if j == 1:
+                    tmp += 1
+                    if tmp in range(3, 5):
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+                if j == 0:
+                    if tmp == 3:
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+            # Check for elements in 0 line where p in range(1, w)
+            if (n == 0) & (p > 0) & (p < w):
+                # 1
+                if _canvas[h][p-1] == 1:
+                    tmp += 1
+                # 2
+                if _canvas[h][p] == 1:
+                    tmp += 1
+                # 3
+                if _canvas[h][p+1] == 1:
+                    tmp += 1
+                # 4
+                if _canvas[n][p-1] == 1:
+                    tmp += 1
+                # 5
+                if _canvas[n][p+1] == 1:
+                    tmp += 1
+                # 6
+                if _canvas[n+1][p-1] == 1:
+                    tmp += 1
+                # 7
+                if _canvas[n+1][p] == 1:
+                    tmp += 1
+                # 8
+                if _canvas[n+1][p+1] == 1:
+                    tmp += 1
+                # Set life or death
+                if j == 1:
+                    tmp += 1
+                    if tmp in range(3, 5):
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+                if j == 0:
+                    if tmp == 3:
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+            # Check for 0 line and last element
+            if (n == 0) & (p == w):
+                # 1
+                if _canvas[h][p-1] == 1:
+                    tmp += 1
+                # 2
+                if _canvas[h][p] == 1:
+                    tmp += 1
+                # 3
+                if _canvas[h][0] == 1:
+                    tmp += 1
+                # 4
+                if _canvas[n][p-1] == 1:
+                    tmp += 1
+                # 5
+                if _canvas[n][0] == 1:
+                    tmp += 1
+                # 6
+                if _canvas[n+1][p-1] == 1:
+                    tmp += 1
+                # 7
+                if _canvas[n+1][p] == 1:
+                    tmp += 1
+                # 8
+                if _canvas[n+1][0] == 1:
+                    tmp += 1
+
+                # Set life or death
+                if j == 1:
+                    tmp += 1
+                    if tmp in range(3, 5):
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+                if j == 0:
+                    if tmp == 3:
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+            # Checks for First elements in lines n in range(1, h)
+            if (n > 0) & (n < h) & (p == 0):
+                # 1
+                if _canvas[n-1][w] == 1:
+                    tmp += 1
+                # 2
+                if _canvas[n-1][p] == 1:
+                    tmp += 1
+                # 3
+                if _canvas[n-1][p+1] == 1:
+                    tmp += 1
+                # 4
+                if _canvas[n][w] == 1:
+                    tmp += 1
+                # 5
+                if _canvas[n][p+1] == 1:
+                    tmp += 1
+                # 6
+                if _canvas[n+1][w] == 1:
+                    tmp += 1
+                # 7
+                if _canvas[n+1][p] == 1:
+                    tmp += 1
+                # 8
+                if _canvas[n+1][p+1] == 1:
+                    tmp += 1
+                # Set life or death
+                if j == 1:
+                    tmp += 1
+                    if tmp in range(3, 5):
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+                if j == 0:
+                    if tmp == 3:
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+            # Checks for elements n > 0 and p in range(1, w)
+            if (n > 0) & (n < h) & (p > 0) & (p < w):
+                # 1
+                if _canvas[n-1][p-1] == 1:
+                    tmp += 1
+                # 2
+                if _canvas[n-1][p] == 1:
+                    tmp += 1
+                # 3
+                if _canvas[n-1][p+1] == 1:
+                    tmp += 1
+                # 4
+                if _canvas[n][p-1] == 1:
+                    tmp += 1
+                # 5
+                if _canvas[n][p+1] == 1:
+                    tmp += 1
+                # 6
+                if _canvas[n+1][p-1] == 1:
+                    tmp += 1
+                # 7
+                if _canvas[n+1][p] == 1:
+                    tmp += 1
+                # 8
+                if _canvas[n+1][p+1] == 1:
+                    tmp += 1
+                # Set life or death
+                if j == 1:
+                    tmp += 1
+                    if tmp in range(3, 5):
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+                if j == 0:
+                    if tmp == 3:
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+            # Checks for Last elements n > 0
+            if (n > 0) & (n < h) & (p == w):
+                # 1
+                if _canvas[n-1][p-1] == 1:
+                    tmp += 1
+                # 2
+                if _canvas[n-1][p] == 1:
+                    tmp += 1
+                # 3
+                if _canvas[n-1][0] == 1:
+                    tmp += 1
+                # 4
+                if _canvas[n][p-1] == 1:
+                    tmp += 1
+                # 5
+                if _canvas[n][0] == 1:
+                    tmp += 1
+                # 6
+                if _canvas[n+1][p-1] == 1:
+                    tmp += 1
+                # 7
+                if _canvas[n+1][p] == 1:
+                    tmp += 1
+                # 8
+                if _canvas[n+1][0] == 1:
+                    tmp += 1
+                # Set life or death
+                if j == 1:
+                    tmp += 1
+                    if tmp in range(3, 5):
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+                if j == 0:
+                    if tmp == 3:
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+            # Check for element 0 in Last line
+            if (n == h) & (p == 0):
+                # 1
+                if _canvas[n-1][w] == 1:
+                    tmp += 1
+                # 2
+                if _canvas[n-1][p] == 1:
+                    tmp += 1
+                # 3
+                if _canvas[n-1][p+1] == 1:
+                    tmp += 1
+                # 4
+                if _canvas[n][w] == 1:
+                    tmp += 1
+                # 5
+                if _canvas[n][p+1] == 1:
+                    tmp += 1
+                # 6
+                if _canvas[0][w] == 1:
+                    tmp += 1
+                # 7
+                if _canvas[0][p] == 1:
+                    tmp += 1
+                # 8
+                if _canvas[0][p+1] == 1:
+                    tmp += 1
+                # Set life or death
+                if j == 1:
+                    tmp += 1
+                    if tmp in range(3, 5):
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+                if j == 0:
+                    if tmp == 3:
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+            # Check for elements p in range(1, w) in Last line
+            if (n == h) & (p > 0) & (p < w):
+                # 1
+                if _canvas[n-1][p-1] == 1:
+                    tmp += 1
+                # 2
+                if _canvas[n-1][p] == 1:
+                    tmp += 1
+                # 3
+                if _canvas[n-1][p+1] == 1:
+                    tmp += 1
+                # 4
+                if _canvas[n][p-1] == 1:
+                    tmp += 1
+                # 5
+                if _canvas[n][p+1] == 1:
+                    tmp += 1
+                # 6
+                if _canvas[0][p-1] == 1:
+                    tmp += 1
+                # 7
+                if _canvas[0][p] == 1:
+                    tmp += 1
+                # 8
+                if _canvas[0][p+1] == 1:
+                    tmp += 1
+                # Set life or death
+                if j == 1:
+                    tmp += 1
+                    if tmp in range(3, 5):
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+                if j == 0:
+                    if tmp == 3:
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+            # Check for Last element in Last line
+            if (n == h) & (p == w):
+                # 1
+                if _canvas[n-1][p-1] == 1:
+                    tmp += 1
+                # 2
+                if _canvas[n-1][p] == 1:
+                    tmp += 1
+                # 3
+                if _canvas[n-1][0] == 1:
+                    tmp += 1
+                # 4
+                if _canvas[n][p-1] == 1:
+                    tmp += 1
+                # 5
+                if _canvas[n][0] == 1:
+                    tmp += 1
+                # 6
+                if _canvas[0][p-1] == 1:
+                    tmp += 1
+                # 7
+                if _canvas[0][p] == 1:
+                    tmp += 1
+                # 8
+                if _canvas[0][0] == 1:
+                    tmp += 1
+                # Set life or death
+                if j == 1:
+                    tmp += 1
+                    if tmp in range(3, 5):
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+                if j == 0:
+                    if tmp == 3:
+                        tmp_canvas[n][p] = 1
+                        tmp = 0
+                    else:
+                        tmp_canvas[n][p] = 0
+                        tmp = 0
+>>>>>>> a4220ffe01c3d8ef44ede75b657a4480a5433dbe
     return tmp_canvas
 
 #def check_canvas(_canvas):
@@ -513,7 +894,7 @@ def main():
         print(f'FRAME: {frame}')
         draw_canvas(next_canvas)
         canvas_init = next_canvas
-        time.sleep(0.2)
+        time.sleep(0.1)
 
 
 main()
