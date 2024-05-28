@@ -4,9 +4,8 @@ else:
     print('Importing a', __name__)
 
 import time
+from diehard import set_diehard, nd
 
-
-canvas = [[0 for i in range(16)] for j in range(16)] 
 
 #           0 1 2 3 4 5 6 7 8 9 101112131415
 #    0     [. . . . . . . . . . . . . . . .] 
@@ -27,7 +26,8 @@ canvas = [[0 for i in range(16)] for j in range(16)]
 #    15    [. . . . . . . . . . . . . . . .] 
 
 
-def canvas_state(s_canvas):
+def default_canvas():
+    s_canvas = [[0 for i in range(16)] for j in range(16)] 
     s_canvas[1][1] = 1
     s_canvas[1][2] = 1
     s_canvas[2][1] = 1
@@ -75,11 +75,9 @@ def check_neigbours(_canvas):
                     if _canvas[dex_n][dex_p] == 1:
                         tmp += 1
             if _canvas[n][p] == 1:
-                print(tmp)
                 tmp += 1
                 if tmp in range(3, 5):
                     tmp_canvas[n][p] = 1
-                    print('tmp element', tmp_canvas[n][p])
                 tmp = 0
             else:
                 if tmp == 3:
@@ -89,16 +87,22 @@ def check_neigbours(_canvas):
 
 
 def main():
+    canvas = input('Enter "d" for default state:\nEnter "die" for diehard pattern:\n')
+    if canvas == 'd':
+        canvas = default_canvas()
+    if canvas == 'die':
+        canvas = set_diehard()
+    if canvas == 'nd':
+        canvas = nd()
     frame = 1
-    canvas_init = canvas_state(canvas)
     print(f'FRAME: {frame}')
-    draw_canvas(canvas_init)
-    for _ in range(0, 125):
+    draw_canvas(canvas)
+    for _ in range(0, 150):
         frame += 1
-        next_canvas = check_neigbours(canvas_init)
+        next_canvas = check_neigbours(canvas)
         print(f'FRAME: {frame}')
         draw_canvas(next_canvas)
-        canvas_init = next_canvas
+        canvas = next_canvas
         time.sleep(0.1)
 
 
